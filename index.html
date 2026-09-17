@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hafenkante Containerlogistik – Containertransport Rhein-Neckar</title>
-<meta name="description" content="Containertransport zwischen dem Hafen Mannheim und den Seehäfen Rotterdam, Antwerpen und Hamburg. 34 eigene Zugmaschinen, Zollabwicklung, Gefahrgut nach ADR.">
+<title>Diwold Containerdienst – Absetzcontainer &amp; Schuttabholung Rhein-Neckar</title>
+<meta name="description" content="Absetzcontainer für Bauschutt, Sperrmüll und Grünschnitt im Rhein-Neckar-Raum. Lieferung meist am nächsten Werktag, Schuttabholung auf Zuruf, Entsorgungsnachweis inklusive.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -51,7 +51,6 @@
   --line:#223B4E;
   --shadow:0 18px 40px rgba(0,0,0,.45);
 }
-
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
@@ -105,11 +104,10 @@ img,svg{max-width:100%}
 
 /* ---------- Hero ---------- */
 .hero{position:relative;background:var(--navy);color:#fff;overflow:hidden;isolation:isolate}
-.hero__art{position:absolute;inset:0;width:100%;height:100%;z-index:-2}
-.hero__art svg{width:100%;height:100%;display:block}
+.hero__photo{position:absolute;inset:0;width:100%;height:100%;z-index:-2;object-fit:cover;object-position:center 65%}
 .hero__scrim{
   position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(100deg,rgba(9,22,34,.94) 0%,rgba(9,22,34,.88) 38%,rgba(9,22,34,.35) 72%,rgba(9,22,34,.15) 100%);
+  background:linear-gradient(100deg,rgba(9,22,34,.94) 0%,rgba(9,22,34,.88) 40%,rgba(9,22,34,.42) 74%,rgba(9,22,34,.18) 100%);
 }
 .hero .wrap{padding-block:clamp(4rem,11vw,7.5rem)}
 .hero__text{max-width:37rem}
@@ -117,6 +115,8 @@ img,svg{max-width:100%}
 .hero h1{font-size:clamp(2.35rem,6.2vw,4.1rem);margin-bottom:1.15rem}
 .hero p{font-size:clamp(1.05rem,2.2vw,1.22rem);color:#D6E3EC;max-width:34rem}
 .hero__actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.1rem}
+.hero__credit{position:absolute;right:var(--pad);bottom:.6rem;z-index:1;font-size:.72rem;color:rgba(255,255,255,.55)}
+.hero__credit a{color:rgba(255,255,255,.75);text-decoration:underline}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;
   min-height:48px;padding:.85rem 1.5rem;border-radius:2px;
@@ -140,7 +140,6 @@ section{padding-block:clamp(3.5rem,8vw,6rem)}
 .sec-head{max-width:40rem;margin-bottom:2.8rem}
 .sec-head h2{font-size:clamp(1.8rem,4vw,2.7rem);margin-bottom:.9rem}
 .sec-head p{color:var(--ink-muted)}
-
 .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.25rem}
 .card{border:1px solid var(--line);border-top:4px solid var(--navy);padding:1.6rem 1.5rem 1.75rem;background:var(--surface)}
 .card:hover{border-top-color:var(--signal)}
@@ -156,7 +155,7 @@ section{padding-block:clamp(3.5rem,8vw,6rem)}
 .steps h3{font-size:1.1rem;margin:.35rem 0 .5rem}
 .steps p{color:var(--ink-muted);font-size:.97rem}
 
-/* Flotte / Tabelle */
+/* Container / Tabelle */
 .table-scroll{overflow-x:auto}
 table{border-collapse:collapse;width:100%;min-width:560px;font-size:.98rem}
 caption{text-align:left;color:var(--ink-muted);font-size:.92rem;padding-bottom:.8rem}
@@ -229,372 +228,257 @@ footer a:hover{color:#fff;text-decoration:underline}
   <div class="wrap">
     <a class="brand" href="#top">
       <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
-        <rect x="1" y="9" width="32" height="17" fill="#F5C400"/>
-        <g fill="#0E2233">
-          <rect x="5" y="9" width="2" height="17"/><rect x="10" y="9" width="2" height="17"/>
-          <rect x="15" y="9" width="2" height="17"/><rect x="20" y="9" width="2" height="17"/>
-          <rect x="25" y="9" width="2" height="17"/>
-        </g>
+        <rect x="3" y="10" width="28" height="18" fill="#F5C400"/>
+        <path d="M3 10 L9 3 H29 L31 10 Z" fill="#0E2233"/>
+        <rect x="3" y="10" width="28" height="4" fill="#0E2233" opacity=".35"/>
       </svg>
-      <span>Hafenkante<small>Containerlogistik Mannheim</small></span>
+      <span>Diwold<small>Containerdienst Mannheim</small></span>
     </a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menü</button>
     <nav class="nav" id="nav" aria-label="Hauptnavigation">
       <a href="#leistungen">Leistungen</a>
       <a href="#ablauf">Ablauf</a>
-      <a href="#flotte">Flotte</a>
+      <a href="#container">Container</a>
       <a href="#unternehmen">Unternehmen</a>
-      <a class="call" href="#kontakt">Transport anfragen</a>
+      <a class="call" href="#kontakt">Container anfragen</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
 
-  <!-- ============ HERO MIT BILD ============ -->
-  <section class="hero">
-    <div class="hero__art" aria-hidden="true">
-      <svg viewBox="0 0 1600 760" preserveAspectRatio="xMidYMid slice" role="img">
-        <defs>
-          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#1B3C57"/>
-            <stop offset="55%" stop-color="#2C5B79"/>
-            <stop offset="100%" stop-color="#6E8FA3"/>
-          </linearGradient>
-          <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#274B63"/>
-            <stop offset="100%" stop-color="#16313F"/>
-          </linearGradient>
-        </defs>
-
-        <rect width="1600" height="760" fill="url(#sky)"/>
-        <circle cx="1230" cy="200" r="74" fill="#F7D98A" opacity=".55"/>
-
-        <!-- ferne Skyline -->
-        <g fill="#1D3F58" opacity=".7">
-          <rect x="60" y="360" width="90" height="90"/><rect x="170" y="330" width="60" height="120"/>
-          <rect x="250" y="375" width="120" height="75"/><rect x="1390" y="345" width="80" height="105"/>
-          <rect x="1490" y="380" width="70" height="70"/>
-        </g>
-
-        <!-- Portalkran -->
-        <g fill="#0F2C41">
-          <rect x="470" y="150" width="620" height="16"/>
-          <rect x="1090" y="150" width="240" height="12"/>
-          <rect x="520" y="166" width="20" height="290"/>
-          <rect x="1040" y="166" width="20" height="290"/>
-          <rect x="700" y="166" width="14" height="230"/>
-          <rect x="860" y="166" width="14" height="230"/>
-          <rect x="690" y="392" width="196" height="12"/>
-        </g>
-        <g fill="#F5C400">
-          <rect x="770" y="166" width="10" height="120"/>
-          <rect x="726" y="286" width="98" height="44"/>
-        </g>
-
-        <!-- Containerschiff -->
-        <g>
-          <rect x="1120" y="400" width="420" height="60" fill="#12354B"/>
-          <path d="M1120 460 h420 l-40 46 h-340 Z" fill="#0C2536"/>
-          <g>
-            <rect x="1150" y="352" width="70" height="48" fill="#C0492C"/>
-            <rect x="1230" y="352" width="70" height="48" fill="#2F6E86"/>
-            <rect x="1310" y="352" width="70" height="48" fill="#D8D2C4"/>
-            <rect x="1390" y="352" width="70" height="48" fill="#3C7A55"/>
-            <rect x="1150" y="304" width="70" height="46" fill="#2F6E86"/>
-            <rect x="1230" y="304" width="70" height="46" fill="#C0492C"/>
-            <rect x="1310" y="304" width="70" height="46" fill="#3C7A55"/>
-          </g>
-          <rect x="1470" y="318" width="54" height="82" fill="#E8ECEE"/>
-          <rect x="1478" y="332" width="38" height="16" fill="#26596F"/>
-        </g>
-
-        <!-- Wasser -->
-        <rect x="0" y="456" width="1600" height="120" fill="url(#water)"/>
-        <g fill="#38617C" opacity=".5">
-          <rect x="120" y="490" width="160" height="4"/><rect x="420" y="516" width="220" height="4"/>
-          <rect x="980" y="498" width="180" height="4"/><rect x="1260" y="534" width="240" height="4"/>
-        </g>
-
-        <!-- Kaikante -->
-        <rect x="0" y="566" width="1600" height="26" fill="#233845"/>
-        <rect x="0" y="592" width="1600" height="168" fill="#2C3E4A"/>
-        <g fill="#F5C400" opacity=".85">
-          <rect x="0" y="592" width="60" height="8"/><rect x="120" y="592" width="60" height="8"/>
-          <rect x="240" y="592" width="60" height="8"/><rect x="360" y="592" width="60" height="8"/>
-          <rect x="480" y="592" width="60" height="8"/><rect x="600" y="592" width="60" height="8"/>
-          <rect x="720" y="592" width="60" height="8"/><rect x="840" y="592" width="60" height="8"/>
-          <rect x="960" y="592" width="60" height="8"/><rect x="1080" y="592" width="60" height="8"/>
-          <rect x="1200" y="592" width="60" height="8"/><rect x="1320" y="592" width="60" height="8"/>
-          <rect x="1440" y="592" width="60" height="8"/>
-        </g>
-
-        <!-- Containerstapel am Kai -->
-        <g>
-          <rect x="120" y="470" width="150" height="46" fill="#3C7A55"/>
-          <rect x="120" y="518" width="150" height="46" fill="#C0492C"/>
-          <rect x="280" y="518" width="150" height="46" fill="#2F6E86"/>
-          <rect x="280" y="470" width="150" height="46" fill="#D8D2C4"/>
-          <rect x="440" y="518" width="150" height="46" fill="#3C7A55"/>
-          <g fill="#0F2C41" opacity=".22">
-            <rect x="140" y="470" width="4" height="94"/><rect x="180" y="470" width="4" height="94"/>
-            <rect x="220" y="470" width="4" height="94"/><rect x="300" y="470" width="4" height="94"/>
-            <rect x="340" y="470" width="4" height="94"/><rect x="380" y="470" width="4" height="94"/>
-            <rect x="460" y="518" width="4" height="46"/><rect x="500" y="518" width="4" height="46"/>
-            <rect x="540" y="518" width="4" height="46"/>
-          </g>
-        </g>
-
-        <!-- LKW mit 40-Fuß-Container im Vordergrund -->
-        <g>
-          <rect x="620" y="596" width="470" height="96" fill="#16405C"/>
-          <g fill="#0B2739" opacity=".35">
-            <rect x="660" y="596" width="8" height="96"/><rect x="720" y="596" width="8" height="96"/>
-            <rect x="780" y="596" width="8" height="96"/><rect x="840" y="596" width="8" height="96"/>
-            <rect x="900" y="596" width="8" height="96"/><rect x="960" y="596" width="8" height="96"/>
-            <rect x="1020" y="596" width="8" height="96"/>
-          </g>
-          <rect x="620" y="692" width="470" height="14" fill="#1B2B36"/>
-          <!-- Zugmaschine -->
-          <path d="M1090 626 h96 l44 62 v18 h-140 Z" fill="#F5C400"/>
-          <path d="M1150 636 h34 l30 44 h-64 Z" fill="#9FC4D8"/>
-          <rect x="1090" y="706" width="150" height="10" fill="#1B2B36"/>
-          <circle cx="1160" cy="722" r="26" fill="#131F28"/><circle cx="1160" cy="722" r="10" fill="#57666F"/>
-          <circle cx="1226" cy="722" r="26" fill="#131F28"/><circle cx="1226" cy="722" r="10" fill="#57666F"/>
-          <circle cx="700" cy="722" r="26" fill="#131F28"/><circle cx="700" cy="722" r="10" fill="#57666F"/>
-          <circle cx="766" cy="722" r="26" fill="#131F28"/><circle cx="766" cy="722" r="10" fill="#57666F"/>
-        </g>
-      </svg>
-    </div>
-    <div class="hero__scrim"></div>
-
-    <div class="wrap">
-      <div class="hero__text">
-        <span class="hero__kicker rise">Hafen Mannheim, Tor 4</span>
-        <h1 class="rise">Container vom Kai bis zur Rampe, am selben Tag</h1>
-        <p class="rise">Wir fahren Seecontainer zwischen Rotterdam, Antwerpen, Hamburg und dem Rhein-Neckar-Raum. 34 eigene Zugmaschinen, 61 Chassis, Disposition rund um die Uhr besetzt.</p>
-        <div class="hero__actions rise">
-          <a class="btn btn--primary" href="#kontakt">Transport anfragen</a>
-          <a class="btn btn--ghost" href="#leistungen">Leistungen ansehen</a>
-        </div>
+<!-- ============ HERO MIT ECHTEM FOTO ============ -->
+<section class="hero">
+  <img
+    class="hero__photo"
+    src="https://americanmadedumpsters.com/wp-content/uploads/2021/06/Red-Yellow-dumpster.jpg"
+    alt="Roter Absetzcontainer für Bauschutt auf einer Baustelle"
+    loading="eager">
+  <div class="hero__scrim"></div>
+  <div class="wrap">
+    <div class="hero__text">
+      <span class="hero__kicker rise">Rhein-Neckar-Raum</span>
+      <h1 class="rise">Absetzcontainer bestellt, Schutt weg – meist am nächsten Tag</h1>
+      <p class="rise">Wir liefern und holen Container für Bauschutt, Sperrmüll und Grünschnitt in Mannheim und Umgebung. 22 eigene Absetzcontainer, Größen von 3 bis 10 m³, Wiegeschein und Entsorgungsnachweis inklusive.</p>
+      <div class="hero__actions rise">
+        <a class="btn btn--primary" href="#kontakt">Container anfragen</a>
+        <a class="btn btn--ghost" href="#leistungen">Leistungen ansehen</a>
       </div>
-    </div>
-  </section>
-
-  <div class="facts">
-    <div class="wrap">
-      <div class="fact"><b>34</b><span>eigene Zugmaschinen</span></div>
-      <div class="fact"><b>61</b><span>Chassis für 20', 40' und 45'</span></div>
-      <div class="fact"><b>4 h</b><span>Vorlauf für Abholung im Hafen Mannheim</span></div>
-      <div class="fact"><b>1998</b><span>gegründet, in zweiter Generation geführt</span></div>
     </div>
   </div>
+  <p class="hero__credit">Beispielbild – vor Veröffentlichung durch ein eigenes Foto ersetzen</p>
+</section>
 
-  <!-- ============ LEISTUNGEN ============ -->
-  <section id="leistungen">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Was wir fahren</h2>
-        <p>Vier Bereiche, alle mit eigenem Fuhrpark und eigenen Fahrern. Subunternehmer setzen wir nur bei Spitzen ein und nennen sie Ihnen vorab.</p>
-      </div>
-      <div class="services">
+<div class="facts">
+  <div class="wrap">
+    <div class="fact"><b>22</b><span>eigene Absetzcontainer</span></div>
+    <div class="fact"><b>3–10 m³</b><span>Containergrößen zur Auswahl</span></div>
+    <div class="fact"><b>24 h</b><span>meist Lieferung am nächsten Werktag</span></div>
+    <div class="fact"><b>2003</b><span>gegründet, in zweiter Generation geführt</span></div>
+  </div>
+</div>
 
-        <article class="card">
-          <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
-            <rect x="2" y="12" width="26" height="16" fill="#16405C"/><rect x="28" y="16" width="10" height="12" fill="#F5C400"/>
-            <circle cx="10" cy="31" r="4" fill="#17242E"/><circle cx="30" cy="31" r="4" fill="#17242E"/>
-          </svg>
-          <h3>Hafenhinterlandverkehr</h3>
-          <p>Abholung und Zustellung von Seecontainern an den Terminals in Rotterdam, Antwerpen, Hamburg, Bremerhaven und im Hafen Mannheim.</p>
-        </article>
-
-        <article class="card">
-          <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
-            <rect x="4" y="8" width="32" height="24" fill="#2F6E86"/>
-            <rect x="10" y="8" width="3" height="24" fill="#16405C"/><rect x="19" y="8" width="3" height="24" fill="#16405C"/>
-            <rect x="28" y="8" width="3" height="24" fill="#16405C"/>
-          </svg>
-          <h3>Leercontainer und Depot</h3>
-          <p>Gestellung, Rückgabe und Zwischenlagerung auf 4.200 m² Depotfläche mit Reparaturannahme und Fotodokumentation bei Ein- und Ausgang.</p>
-        </article>
-
-        <article class="card">
-          <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
-            <path d="M20 4 L34 11 v12 c0 8-6 12-14 14-8-2-14-6-14-14V11Z" fill="#16405C"/>
-            <path d="M14 20 l5 5 9-10" stroke="#F5C400" stroke-width="3" fill="none"/>
-          </svg>
-          <h3>Gefahrgut nach ADR</h3>
-          <p>Klassen 2, 3, 5.1, 8 und 9 mit geschulten Fahrern, eigenem Gefahrgutbeauftragten und Beförderungspapieren in deutscher und englischer Sprache.</p>
-        </article>
-
-        <article class="card">
-          <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
-            <rect x="7" y="5" width="26" height="30" fill="#EDF0F2" stroke="#16405C" stroke-width="2"/>
-            <rect x="12" y="12" width="16" height="2.5" fill="#54636E"/><rect x="12" y="19" width="16" height="2.5" fill="#54636E"/>
-            <rect x="12" y="26" width="10" height="2.5" fill="#F5C400"/>
-          </svg>
-          <h3>Zoll und Papiere</h3>
-          <p>T1-Versandverfahren, Zollanmeldung über ATLAS, Ausfuhrbegleitdokumente. Wir übernehmen die Anmeldung, Sie erhalten die Nachweise digital.</p>
-        </article>
-
-      </div>
+<!-- ============ LEISTUNGEN ============ -->
+<section id="leistungen">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Was wir abholen</h2>
+      <p>Vier Bereiche, alle mit eigenem Fuhrpark. Der Container steht dort, wo Sie ihn brauchen, und wird abgeholt, sobald er voll ist.</p>
     </div>
-  </section>
-
-  <!-- ============ ABLAUF ============ -->
-  <section class="steps" id="ablauf">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>So läuft ein Auftrag</h2>
-        <p>Vom Anruf bis zum Ablieferbeleg vergehen bei Standardläufen im Umkreis von 150 km selten mehr als 24 Stunden.</p>
-      </div>
-      <ol>
-        <li>
-          <span class="num">Schritt 1</span>
-          <h3>Anfrage und Festpreis</h3>
-          <p>Sie nennen Containernummer, Terminal und Zieladresse. Sie erhalten den Preis innerhalb von zwei Stunden, inklusive Wartezeitregelung.</p>
-        </li>
-        <li>
-          <span class="num">Schritt 2</span>
-          <h3>Disposition und Slot</h3>
-          <p>Wir buchen das Zeitfenster am Terminal, prüfen Gewicht und Lademittel und melden Ihnen den Fahrer mit Kennzeichen.</p>
-        </li>
-        <li>
-          <span class="num">Schritt 3</span>
-          <h3>Transport</h3>
-          <p>Jede Zugmaschine sendet Positionsdaten alle fünf Minuten. Bei Abweichungen über 30 Minuten ruft die Disposition Sie an.</p>
-        </li>
-        <li>
-          <span class="num">Schritt 4</span>
-          <h3>Ablieferung und Beleg</h3>
-          <p>Der Fahrer fotografiert Container und Siegel. Sie bekommen den unterschriebenen CMR noch am selben Tag als PDF.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ============ FLOTTE ============ -->
-  <section id="flotte">
-    <div class="wrap">
-      <div class="sec-head">
-        <h2>Chassis und Containermaße</h2>
-        <p>Die Innenmaße helfen bei der Planung der Ladung. Bei Schwergut über 26 Tonnen brauchen wir zwei Werktage Vorlauf für die Genehmigung.</p>
-      </div>
-      <div class="table-scroll">
-        <table>
-          <caption>Innenmaße und maximale Zuladung der gängigen Einheiten</caption>
-          <thead>
-            <tr><th scope="col">Einheit</th><th scope="col">Länge</th><th scope="col">Breite</th><th scope="col">Höhe</th><th scope="col">Zuladung</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>20' Standard</td><td>5,90 m</td><td>2,35 m</td><td>2,39 m</td><td>28,0 t</td></tr>
-            <tr><td>40' Standard</td><td>12,03 m</td><td>2,35 m</td><td>2,39 m</td><td>26,5 t</td></tr>
-            <tr><td>40' High Cube</td><td>12,03 m</td><td>2,35 m</td><td>2,69 m</td><td>26,0 t</td></tr>
-            <tr><td>45' High Cube</td><td>13,56 m</td><td>2,35 m</td><td>2,69 m</td><td>25,0 t</td></tr>
-            <tr><td>20' Tankcontainer</td><td>6,06 m</td><td>2,44 m</td><td>2,59 m</td><td>26,0 t</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ UNTERNEHMEN ============ -->
-  <section id="unternehmen" style="background:var(--surface-2)">
-    <div class="wrap about">
-      <div>
-        <div class="sec-head" style="margin-bottom:1.2rem">
-          <h2>Ein Hof, 48 Kollegen, kurze Wege</h2>
-        </div>
-        <p style="color:var(--ink-muted)">Angefangen hat der Betrieb 1998 mit zwei Zugmaschinen und einem Auftraggeber am Mannheimer Handelshafen. Heute stehen 34 Fahrzeuge auf dem Hof, gefahren von Kolleginnen und Kollegen, die im Schnitt seit neun Jahren dabei sind. Die Disposition sitzt im selben Gebäude wie die Werkstatt, deshalb dauert eine Rückfrage zum Fahrzeugzustand selten länger als ein paar Minuten.</p>
-        <p style="color:var(--ink-muted);margin-top:1rem">Wer bei uns anruft, bekommt einen festen Ansprechpartner mit Durchwahl und Mobilnummer, auch nachts und am Wochenende.</p>
-      </div>
-      <div>
-        <ul>
-          <li><b>Zertifizierungen</b> AEO-F, ISO 9001:2015, SQAS</li>
-          <li><b>Versicherung</b> CMR bis 600.000 € je Schadensfall, Verkehrshaftung nach §7a GüKG</li>
-          <li><b>Telematik</b> Positionsdaten alle 5 Minuten, Archiv 24 Monate</li>
-          <li><b>Flottenalter</b> Durchschnitt 3,1 Jahre, Euro 6, 6 E-Zugmaschinen im Nahverkehr</li>
-          <li><b>Erreichbarkeit</b> Disposition Mo bis So, 5 bis 22 Uhr, Notfallnummer 24/7</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ BAND ============ -->
-  <div class="band">
-    <div class="wrap">
-      <div>
-        <h2>Container steht am Terminal und die Freistellung läuft ab?</h2>
-        <p>Rufen Sie die Disposition an. Wir sagen Ihnen in fünf Minuten, ob wir heute noch fahren können.</p>
-      </div>
-      <a class="btn" href="tel:+496211234560">0621 123456-0 anrufen</a>
+    <div class="services">
+      <article class="card">
+        <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M4 30 L8 14 H32 L36 30 Z" fill="#F5C400"/>
+          <rect x="4" y="30" width="32" height="4" fill="#16405C"/>
+        </svg>
+        <h3>Bauschuttcontainer</h3>
+        <p>Beton, Ziegel, Fliesen und Mauerwerk. Absetzcontainer in 3, 5, 7 und 10 m³, mit oder ohne Bauschuttklappe für schweres Material.</p>
+      </article>
+      <article class="card">
+        <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M4 30 L8 14 H32 L36 30 Z" fill="#2F6E86"/>
+          <rect x="4" y="30" width="32" height="4" fill="#16405C"/>
+        </svg>
+        <h3>Sperrmüll und Entrümpelung</h3>
+        <p>Möbel, Hausrat und Renovierungsreste. Wir stellen den Container oder übernehmen die komplette Entrümpelung inklusive Besenrein.</p>
+      </article>
+      <article class="card">
+        <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M4 30 L8 14 H32 L36 30 Z" fill="#3C7A55"/>
+          <rect x="4" y="30" width="32" height="4" fill="#16405C"/>
+        </svg>
+        <h3>Grünschnitt und Erdaushub</h3>
+        <p>Baumschnitt, Wurzeln und Erdaushub aus Garten- und Tiefbauarbeiten. Separate Container, damit die Trennung stimmt.</p>
+      </article>
+      <article class="card">
+        <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
+          <rect x="7" y="5" width="26" height="30" fill="#EDF0F2" stroke="#16405C" stroke-width="2"/>
+          <rect x="12" y="12" width="16" height="2.5" fill="#54636E"/><rect x="12" y="19" width="16" height="2.5" fill="#54636E"/>
+          <rect x="12" y="26" width="10" height="2.5" fill="#F5C400"/>
+        </svg>
+        <h3>Wiegeschein und Nachweis</h3>
+        <p>Jeder Container wird bei der Deponie verwogen. Sie erhalten Wiegeschein und Entsorgungsnachweis digital per E-Mail.</p>
+      </article>
     </div>
   </div>
+</section>
 
-  <!-- ============ KONTAKT ============ -->
-  <section id="kontakt">
-    <div class="wrap contact">
-      <div>
-        <div class="sec-head" style="margin-bottom:1.6rem">
-          <h2>Transport anfragen</h2>
-          <p>Je mehr Sie eintragen, desto genauer wird der Preis. Fehlende Angaben klären wir am Telefon.</p>
-        </div>
-
-        <form id="anfrage" novalidate>
-          <div class="field">
-            <label for="firma">Firma</label>
-            <input id="firma" name="firma" type="text" autocomplete="organization" required>
-          </div>
-          <div class="field">
-            <label for="name">Ansprechpartner</label>
-            <input id="name" name="name" type="text" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="mail">E-Mail</label>
-            <input id="mail" name="mail" type="email" autocomplete="email" inputmode="email" required>
-          </div>
-          <div class="field">
-            <label for="tel">Telefon <span class="hint">für Rückfragen der Disposition</span></label>
-            <input id="tel" name="tel" type="tel" autocomplete="tel" inputmode="tel">
-          </div>
-          <div class="field">
-            <label for="typ">Einheit</label>
-            <select id="typ" name="typ">
-              <option>20' Standard</option>
-              <option>40' Standard</option>
-              <option>40' High Cube</option>
-              <option>45' High Cube</option>
-              <option>20' Tankcontainer</option>
-              <option>Weiß ich noch nicht</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="route">Von und nach <span class="hint">Terminal, Postleitzahl oder Adresse</span></label>
-            <input id="route" name="route" type="text" placeholder="Rotterdam APM nach 68169 Mannheim">
-          </div>
-          <div class="field">
-            <label for="text">Ladung, Gewicht, Termin</label>
-            <textarea id="text" name="text"></textarea>
-          </div>
-          <button class="btn btn--primary" type="submit">Anfrage senden</button>
-          <p class="status" id="status" role="status"></p>
-        </form>
-      </div>
-
-      <aside class="contact-info">
-        <h3 style="font-size:1.15rem;margin-bottom:1rem">Direkt erreichbar</h3>
-        <dl>
-          <dt>Disposition</dt><dd><a href="tel:+496211234560">0621 123456-0</a></dd>
-          <dt>Notfall 24/7</dt><dd><a href="tel:+4917012345678">0170 1234567</a></dd>
-          <dt>E-Mail</dt><dd><a href="mailto:dispo@hafenkante-logistik.de">dispo@hafenkante-logistik.de</a></dd>
-          <dt>Adresse</dt><dd>Rheinvorlandstraße 12<br>68159 Mannheim</dd>
-          <dt>Tor</dt><dd>Einfahrt Tor 4, Anmeldung am Schalter links</dd>
-          <dt>Öffnung</dt><dd>Mo bis Fr 5 bis 22 Uhr, Sa 6 bis 14 Uhr</dd>
-        </dl>
-        <p class="status" style="margin-top:1.4rem">Für Depotrückgaben nach 20 Uhr melden Sie sich bitte vorab an, sonst ist die Waage unbesetzt.</p>
-      </aside>
+<!-- ============ ABLAUF ============ -->
+<section class="steps" id="ablauf">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>So läuft eine Bestellung</h2>
+      <p>Von der Anfrage bis zur Lieferung vergehen im Umkreis von 30 km meist nicht mehr als ein Werktag.</p>
     </div>
-  </section>
+    <ol>
+      <li>
+        <span class="num">Schritt 1</span>
+        <h3>Anfrage und Festpreis</h3>
+        <p>Sie nennen Material und ungefähre Menge. Wir sagen Ihnen am Telefon oder per Formular, welche Größe passt und was sie kostet.</p>
+      </li>
+      <li>
+        <span class="num">Schritt 2</span>
+        <h3>Liefertermin</h3>
+        <p>Wir vereinbaren Datum und Standort. Für die Stellplatzgröße und eventuelle Sondernutzung auf der Straße beraten wir Sie vorab.</p>
+      </li>
+      <li>
+        <span class="num">Schritt 3</span>
+        <h3>Befüllung</h3>
+        <p>Der Container bleibt so lange stehen, wie Sie ihn brauchen. Die ersten 14 Tage sind im Preis enthalten, danach 2 € pro Tag.</p>
+      </li>
+      <li>
+        <span class="num">Schritt 4</span>
+        <h3>Abholung und Nachweis</h3>
+        <p>Sie melden sich, wir holen ab. Wiegeschein und Entsorgungsnachweis bekommen Sie noch am selben Tag als PDF.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CONTAINER ============ -->
+<section id="container">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Containergrößen im Überblick</h2>
+      <p>Die Maße helfen bei der Wahl der richtigen Größe. Bei Aufstellung auf öffentlichem Grund kümmern wir uns auf Wunsch um die Sondernutzungserlaubnis.</p>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <caption>Absetzcontainer nach DIN 30720, Standardausführung offen</caption>
+        <thead>
+          <tr><th scope="col">Größe</th><th scope="col">Länge</th><th scope="col">Breite</th><th scope="col">Höhe</th><th scope="col">Geeignet für</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>3 m³</td><td>2,00 m</td><td>1,70 m</td><td>1,00 m</td><td>Kleine Renovierung, Badsanierung</td></tr>
+          <tr><td>5 m³</td><td>2,50 m</td><td>1,70 m</td><td>1,20 m</td><td>Kellerentrümpelung, kleiner Umbau</td></tr>
+          <tr><td>7 m³</td><td>3,00 m</td><td>1,70 m</td><td>1,40 m</td><td>Bauschutt, Sperrmüll, mittlerer Umbau</td></tr>
+          <tr><td>10 m³</td><td>3,50 m</td><td>1,90 m</td><td>1,50 m</td><td>Abbrucharbeiten, größere Baustellen</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ UNTERNEHMEN ============ -->
+<section id="unternehmen" style="background:var(--surface-2)">
+  <div class="wrap about">
+    <div>
+      <div class="sec-head" style="margin-bottom:1.2rem">
+        <h2>Ein Hof, 19 Kollegen, kurze Wege</h2>
+      </div>
+      <p style="color:var(--ink-muted)">Angefangen hat der Betrieb 2003 mit einem Fahrzeug und zwei Containern in Mannheim-Neckarau. Heute stehen 22 Absetzcontainer und sechs Abrollkipper auf dem Hof, gefahren von Kolleginnen und Kollegen, die im Schnitt seit sieben Jahren dabei sind. Disposition und Werkstatt sitzen im selben Gebäude, deshalb dauert eine Rückfrage zum Fahrzeugstatus selten länger als ein paar Minuten.</p>
+      <p style="color:var(--ink-muted);margin-top:1rem">Wer bei uns anruft, bekommt einen festen Ansprechpartner mit Durchwahl, auch für kurzfristige Anfragen am selben Tag.</p>
+    </div>
+    <div>
+      <ul>
+        <li><b>Entsorgung</b> Zertifizierter Fachbetrieb nach § 56 KrWG</li>
+        <li><b>Recyclingquote</b> über 85 % bei sortenreinem Bauschutt</li>
+        <li><b>Fuhrpark</b> 6 Abrollkipper, Euro 6, 2 im reinen Nahverkehr elektrisch</li>
+        <li><b>Sondernutzung</b> Beantragung der Straßenerlaubnis auf Wunsch inklusive</li>
+        <li><b>Erreichbarkeit</b> Disposition Mo bis Fr 7 bis 17 Uhr, Sa 8 bis 12 Uhr</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BAND ============ -->
+<div class="band">
+  <div class="wrap">
+    <div>
+      <h2>Container ist voll und die Baustelle wartet?</h2>
+      <p>Rufen Sie die Disposition an. Bei Anruf bis 11 Uhr holen wir im Rhein-Neckar-Raum oft noch am selben Tag ab.</p>
+    </div>
+    <a class="btn" href="tel:+496211234560">0621 123456-0 anrufen</a>
+  </div>
+</div>
+
+<!-- ============ KONTAKT ============ -->
+<section id="kontakt">
+  <div class="wrap contact">
+    <div>
+      <div class="sec-head" style="margin-bottom:1.6rem">
+        <h2>Container anfragen</h2>
+        <p>Je mehr Sie eintragen, desto genauer wird der Preis. Fehlende Angaben klären wir am Telefon.</p>
+      </div>
+      <form id="anfrage" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="mail">E-Mail</label>
+          <input id="mail" name="mail" type="email" autocomplete="email" inputmode="email" required>
+        </div>
+        <div class="field">
+          <label for="tel">Telefon <span class="hint">für Rückfragen der Disposition</span></label>
+          <input id="tel" name="tel" type="tel" autocomplete="tel" inputmode="tel">
+        </div>
+        <div class="field">
+          <label for="groesse">Containergröße</label>
+          <select id="groesse" name="groesse">
+            <option>3 m³</option>
+            <option>5 m³</option>
+            <option>7 m³</option>
+            <option>10 m³</option>
+            <option>Weiß ich noch nicht</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="material">Material</label>
+          <select id="material" name="material">
+            <option>Bauschutt</option>
+            <option>Sperrmüll</option>
+            <option>Grünschnitt</option>
+            <option>Erdaushub</option>
+            <option>Baumischabfall</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="adresse">Lieferadresse <span class="hint">Straße, Hausnummer, Postleitzahl</span></label>
+          <input id="adresse" name="adresse" type="text" placeholder="z. B. Musterstraße 5, 68159 Mannheim">
+        </div>
+        <div class="field">
+          <label for="text">Menge, Zeitraum, Besonderheiten</label>
+          <textarea id="text" name="text"></textarea>
+        </div>
+        <button class="btn btn--primary" type="submit">Anfrage senden</button>
+        <p class="status" id="status" role="status"></p>
+      </form>
+    </div>
+    <aside class="contact-info">
+      <h3 style="font-size:1.15rem;margin-bottom:1rem">Direkt erreichbar</h3>
+      <dl>
+        <dt>Disposition</dt><dd><a href="tel:+496211234560">0621 123456-0</a></dd>
+        <dt>Kurzfristig</dt><dd><a href="tel:+4917012345678">0170 1234567</a></dd>
+        <dt>E-Mail</dt><dd><a href="mailto:dispo@diwold-container.de">dispo@diwold-container.de</a></dd>
+        <dt>Adresse</dt><dd>Rheinvorlandstraße 12<br>68159 Mannheim</dd>
+        <dt>Hof</dt><dd>Einfahrt links neben dem Werkstatttor</dd>
+        <dt>Öffnung</dt><dd>Mo bis Fr 7 bis 17 Uhr, Sa 8 bis 12 Uhr</dd>
+      </dl>
+      <p class="status" style="margin-top:1.4rem">Für Abholungen außerhalb der Öffnungszeiten melden Sie sich bitte vorab telefonisch an.</p>
+    </aside>
+  </div>
+</section>
 
 </main>
 
@@ -602,25 +486,25 @@ footer a:hover{color:#fff;text-decoration:underline}
   <div class="wrap">
     <div class="cols">
       <div>
-        <h3>Hafenkante Containerlogistik GmbH</h3>
-        <p>Rheinvorlandstraße 12, 68159 Mannheim<br>Geschäftsführung: Anna Kranz, Tobias Kranz</p>
+        <h3>Diwold Containerdienst GmbH</h3>
+        <p>Rheinvorlandstraße 12, 68159 Mannheim<br>Geschäftsführung: Anna Diwold, Tobias Diwold</p>
       </div>
       <div>
         <h3>Seiten</h3>
         <a href="#leistungen">Leistungen</a>
         <a href="#ablauf">Ablauf</a>
-        <a href="#flotte">Flotte</a>
+        <a href="#container">Container</a>
         <a href="#kontakt">Kontakt</a>
       </div>
       <div>
         <h3>Rechtliches</h3>
         <a href="#">Impressum</a>
         <a href="#">Datenschutz</a>
-        <a href="#">ADSp 2017</a>
+        <a href="#">AGB</a>
         <a href="#">Karriere</a>
       </div>
     </div>
-    <p class="legal">Beispielinhalt. Firmendaten, Telefonnummern und Kennzahlen vor der Veröffentlichung ersetzen.</p>
+    <p class="legal">Beispielinhalt. Firmendaten, Telefonnummern und Kennzahlen vor der Veröffentlichung ersetzen. Auch das Hero-Bild ist ein Platzhalter – vor Livegang durch ein eigenes Foto ersetzen.</p>
   </div>
 </footer>
 
@@ -641,24 +525,24 @@ footer a:hover{color:#fff;text-decoration:underline}
   form.addEventListener('submit', function(e){
     e.preventDefault();
     var f = form.elements;
-    if(!f.firma.value.trim() || !f.name.value.trim() || !f.mail.value.trim()){
-      status.textContent = 'Firma, Ansprechpartner und E-Mail fehlen noch.';
-      (f.firma.value.trim() ? (f.name.value.trim() ? f.mail : f.name) : f.firma).focus();
+    if(!f.name.value.trim() || !f.mail.value.trim()){
+      status.textContent = 'Name und E-Mail fehlen noch.';
+      (f.name.value.trim() ? f.mail : f.name).focus();
       return;
     }
     var body = [
-      'Firma: ' + f.firma.value,
-      'Ansprechpartner: ' + f.name.value,
+      'Name: ' + f.name.value,
       'E-Mail: ' + f.mail.value,
       'Telefon: ' + f.tel.value,
-      'Einheit: ' + f.typ.value,
-      'Route: ' + f.route.value,
+      'Containergröße: ' + f.groesse.value,
+      'Material: ' + f.material.value,
+      'Lieferadresse: ' + f.adresse.value,
       '',
       f.text.value
     ].join('\n');
-    status.textContent = 'E-Mail-Programm wird geöffnet. Kommt nichts, schreiben Sie an dispo@hafenkante-logistik.de.';
-    window.location.href = 'mailto:dispo@hafenkante-logistik.de?subject='
-      + encodeURIComponent('Transportanfrage ' + f.firma.value)
+    status.textContent = 'E-Mail-Programm wird geöffnet. Kommt nichts, schreiben Sie an dispo@diwold-container.de.';
+    window.location.href = 'mailto:dispo@diwold-container.de?subject='
+      + encodeURIComponent('Containeranfrage ' + f.name.value)
       + '&body=' + encodeURIComponent(body);
   });
 })();
